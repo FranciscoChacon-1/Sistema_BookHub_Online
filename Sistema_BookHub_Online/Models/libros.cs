@@ -11,6 +11,6 @@ namespace Sistema_BookHub_Online.Models
         public DateTime año_publicacion { get; set; }
         public int ejemplares { get; set; }
         public string? Genero { get; set; }
-        public int id_Editorial { get;}
+        public int id_Editorial { get; set; }
     }
 } 
