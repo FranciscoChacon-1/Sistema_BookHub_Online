@@ -7,8 +7,29 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Editorials\**" />
+    <Compile Remove="Views\Editorial\**" />
+    <Content Remove="Views\Editorials\**" />
+    <Content Remove="Views\Editorial\**" />
+    <EmbeddedResource Remove="Views\Editorials\**" />
+    <EmbeddedResource Remove="Views\Editorial\**" />
+    <None Remove="Views\Editorials\**" />
+    <None Remove="Views\Editorial\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\EditorialController.cs" />
+    <Compile Remove="Controllers\EditorialsController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
   </ItemGroup>
 
 </Project>

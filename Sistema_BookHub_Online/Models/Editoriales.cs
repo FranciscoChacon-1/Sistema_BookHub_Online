@@ -2,7 +2,7 @@
 
 namespace Sistema_BookHub_Online.Models
 {
-    public class Editorial
+    public class Editoriales
     {
         [Key]
         public int id_Editorial { get; set; }

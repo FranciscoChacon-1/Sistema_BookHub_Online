@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
 
+
 namespace Sistema_BookHub_Online.Models
 {
     public class libreriaContext : DbContext
@@ -10,7 +11,7 @@ namespace Sistema_BookHub_Online.Models
         {
           
         }
-         public DbSet<Editorial>Editorial { get; set; }
+         public DbSet<Editoriales>Editoriales { get; set; }
          public DbSet<Empleados> Empleados { get; set;}
         public DbSet<libros> libros { get; set; }
         public DbSet<pedidos> pedidos { get; set;}

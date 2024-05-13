@@ -1,0 +1,59 @@
+﻿@model Sistema_BookHub_Online.Models.pedidos
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>pedidos</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id_Pedido" />
+            <div class="form-group">
+                <label asp-for="Fecha_pedido" class="control-label"></label>
+                <input asp-for="Fecha_pedido" class="form-control" />
+                <span asp-validation-for="Fecha_pedido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cantidad" class="control-label"></label>
+                <input asp-for="Cantidad" class="form-control" />
+                <span asp-validation-for="Cantidad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Titulo_libro" class="control-label"></label>
+                <input asp-for="Titulo_libro" class="form-control" />
+                <span asp-validation-for="Titulo_libro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="id_editorial" class="control-label"></label>
+                <input asp-for="id_editorial" class="form-control" />
+                <span asp-validation-for="id_editorial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="id_empleado" class="control-label"></label>
+                <input asp-for="id_empleado" class="form-control" />
+                <span asp-validation-for="id_empleado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="id_sucursal" class="control-label"></label>
+                <input asp-for="id_sucursal" class="form-control" />
+                <span asp-validation-for="id_sucursal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
