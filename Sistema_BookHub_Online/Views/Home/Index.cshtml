@@ -6,7 +6,7 @@
     @foreach (var libros in (IEnumerable<dynamic>)ViewData["listaIndex"])
     {
         <div class="col mb-5">
-            <div class="card" style="width: 250px; max-height: 600px; background-color: #f8f0b2;">
+            <div class="card" style="width: 250px; max-height: 600px; background-color: #fff999;">
                 <img src="https://firebasestorage.googleapis.com/v0/b/practicadaw-e0c72.appspot.com/o/Archivos%2Flibros.jpg?alt=media&token=45d2837c-aa93-41e9-8d31-43df8b21b2d0" class="card-img-top" style="width: 100%" alt="...">
                 <div class="card-body d-flex flex-column">
                     <h5 class="card-title">@libros.IdLibros: @libros.Titulo</h5>
