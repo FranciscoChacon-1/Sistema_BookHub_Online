@@ -2,52 +2,22 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="row">
-    <div class="col-md-4">
-        <div class="card-custom">
-            <div class="content">
-                <!-- Aquí puedes agregar contenido adicional, como una imagen o texto -->
+<div class="row row-cols-1 row-cols-lg-4">
+    @foreach (var libros in (IEnumerable<dynamic>)ViewData["listaIndex"])
+    {
+        <div class="col mb-5">
+            <div class="card" style="width: 250px; max-height: 600px; background-color: #f8f0b2;">
+                <img src="https://firebasestorage.googleapis.com/v0/b/practicadaw-e0c72.appspot.com/o/Archivos%2Fprueba.jpg?alt=media&token=329bbce2-1e90-4ed0-b450-6acf9b8a454d" class="card-img-top" style="width: 100%" alt="...">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">@libros.IdLibros: @libros.Titulo</h5>
+                    <label>Genero: @libros.Genero</label>
+                    <label>Ejemplares: @libros.Ejemplares</label>
+                    <label>Sucursal: @libros.NombreSucursal</label>
+                    <div class="pt-3 mt-auto container">
+                        <a href="#" id="@libros.IdLibros" class="btn btn-dark">Prestar</a>
+                    </div>
+                </div>
             </div>
-            <button class="btn btn-prestar">PRESTAR</button>
-            <div class="sucursal-name">Santuario Literario</div>
         </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card-custom">
-            <div class="content">
-                <!-- Aquí puedes agregar contenido adicional, como una imagen o texto -->
-            </div>
-            <button class="btn btn-prestar">PRESTAR</button>
-            <div class="sucursal-name">Centre de Lecture</div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card-custom">
-            <div class="content">
-                <!-- Aquí puedes agregar contenido adicional, como una imagen o texto -->
-            </div>
-            <button class="btn btn-prestar">PRESTAR</button>
-            <div class="sucursal-name">Wichtige Seiten</div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-4">
-        <div class="card-custom">
-            <div class="content">
-                <!-- Aquí puedes agregar contenido adicional, como una imagen o texto -->
-            </div>
-            <button class="btn btn-prestar">PRESTAR</button>
-            <div class="sucursal-name">Páginas Vitais</div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card-custom">
-            <div class="content">
-                <!-- Aquí puedes agregar contenido adicional, como una imagen o texto -->
-            </div>
-            <button class="btn btn-prestar">PRESTAR</button>
-            <div class="sucursal-name">Bookhub</div>
-        </div>
-    </div>
+    }
 </div>
