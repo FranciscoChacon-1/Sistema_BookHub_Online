@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Sistema_BookHub_Online.Models;
 using System.Diagnostics;
+using System.Security.Claims;
 
 namespace Sistema_BookHub_Online.Controllers
 {
@@ -15,8 +16,11 @@ namespace Sistema_BookHub_Online.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string searchQuery)
         {
+            var userName = User.Identity.IsAuthenticated ? User.FindFirst(ClaimTypes.Name)?.Value : "Usuario";
+
+
             var listaIndex = (from l in _context.libros
                               join pr in _context.prestamos on l.id_Libros equals pr.id_libro
                               join su in _context.sucursales on pr.id_sucursal equals su.idsucursales
@@ -27,10 +31,19 @@ namespace Sistema_BookHub_Online.Controllers
                                   Ejemplares = l.ejemplares,
                                   Genero = l.Genero,
                                   NombreSucursal = su.Nombre
-                              }).ToList();
-            ViewData["listaIndex"] = listaIndex;
+                              });
+
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                listaIndex = listaIndex.Where(l => l.Titulo.Contains(searchQuery));
+            }
+
+            ViewData["listaIndex"] = listaIndex.ToList();
+            ViewBag.UserName = userName; // Pasa el nombre del usuario a la vista
+
             return View();
         }
+
 
         public IActionResult Privacy()
         {
