@@ -66,5 +66,18 @@ namespace Sistema_BookHub_Online.Controllers
             //Se usume que es un Usuario
             return View("Index");
         }
+
+
+        // Método para registrar un empleado
+        public IActionResult RegistrarEmpleado()
+        {
+            return RedirectToAction("Create", "Empleados");
+        }
+
+        // Método para registrar un cliente
+        public IActionResult RegistrarCliente()
+        {
+            return RedirectToAction("Create", "Usuarios");
+        }
     }
 }

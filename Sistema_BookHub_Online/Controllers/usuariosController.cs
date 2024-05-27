@@ -59,7 +59,7 @@ namespace Sistema_BookHub_Online.Controllers
             {
                 _context.Add(usuarios);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Login");
             }
             return View(usuarios);
         }
