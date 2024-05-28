@@ -24,6 +24,11 @@ namespace Sistema_BookHub_Online.Controllers
             return View(await _context.Editoriales.ToListAsync());
         }
 
+        public IActionResult Index2()
+        {
+            return View("Index2");
+        }
+
         // GET: Editoriales/Details/5
         public async Task<IActionResult> Details(int? id)
         {

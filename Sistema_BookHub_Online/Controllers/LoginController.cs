@@ -31,6 +31,12 @@ namespace Sistema_BookHub_Online.Controllers
                                    && em.id_Empleados.ToString() == credenciales.contrasena
                                    select em).FirstOrDefault();
 
+            if (usuario == null && empleado == null)
+            {
+                ViewBag.Mensaje = "Credenciales incorrectas!!";
+                return View("Index");
+            }
+
             //Si usuario es nulo, se asume que es un empleado
             if (usuario == null)
             {
@@ -40,11 +46,11 @@ namespace Sistema_BookHub_Online.Controllers
                 if (empleado.Encargo == "Admin")
                 {
                     ViewBag.Mensaje = "Bienvenido";
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("IndexAdmin", "Home");
                 }
 
                 ViewBag.Mensaje = "Bienvenido";
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("IndexEmpleado", "Home");
             }
 
             if (empleado == null)
@@ -55,12 +61,6 @@ namespace Sistema_BookHub_Online.Controllers
 
                 ViewBag.Mensaje = "Bienvenido";
                 return RedirectToAction("Index", "Home");
-            }
-
-            if (usuario == null && empleado == null)
-            {
-                ViewBag.Mensaje = "Credenciales incorrectas!!";
-                return View("Index");
             }
 
             //Se usume que es un Usuario

@@ -44,6 +44,41 @@ namespace Sistema_BookHub_Online.Controllers
             return View();
         }
 
+        public IActionResult IndexAdmin()
+        {
+            return View("HomeAdmin");
+        }
+
+        public IActionResult IndexEmpleado()
+        {
+            return View("HomeEmpleado");
+        }
+
+        public IActionResult GotoEmpleados()
+        {
+            return RedirectToAction("Index", "Empleados");
+        }
+        public IActionResult Gotolibros()
+        {
+            return RedirectToAction("Index", "libros");
+        }
+        public IActionResult Gotopedidos()
+        {
+            return RedirectToAction("Index", "pedidos");
+        }
+        public IActionResult GotoPrestamos()
+        {
+            return RedirectToAction("Index", "prestamos");
+        }
+        public IActionResult GotoSucursales()
+        {
+            return RedirectToAction("Index", "sucursales");
+        }
+        public IActionResult GotoUsuarios()
+        {
+            return RedirectToAction("Index", "usuarios");
+        }
+
 
         public IActionResult Privacy()
         {
