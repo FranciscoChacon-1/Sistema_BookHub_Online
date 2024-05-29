@@ -59,10 +59,19 @@ namespace Sistema_BookHub_Online.Controllers
             {
                 _context.Add(prestamos);
                 await _context.SaveChangesAsync();
+
+                TempData["SuccessMessage"] = $"Préstamo agregado con éxito. Detalles del préstamo: " +
+                                             $"ID Libro: {prestamos.id_libro}, " +
+                                             $"ID Usuario: {prestamos.id_usuario}, " +
+                                             $"Fecha Préstamo: {prestamos.Fecha_prestamo}, " +
+                                             $"Estado: {prestamos.Estado}, " +
+                                             $"ID Sucursal: {prestamos.id_sucursal}.";
                 return RedirectToAction("Index", "Home");
             }
+            TempData["ErrorMessage"] = "Hubo un problema al agregar el préstamo. Por favor, intente de nuevo.";
             return View(prestamos);
         }
+
 
         // GET: prestamos/Edit/5
         public async Task<IActionResult> Edit(int? id)

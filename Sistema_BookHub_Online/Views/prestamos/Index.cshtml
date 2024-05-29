@@ -6,9 +6,24 @@
 
 <h1>Index</h1>
 
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
 <table class="table">
     <thead>
         <tr>
@@ -31,29 +46,30 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.id_libro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.id_usuario)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fecha_prestamo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Estado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.id_sucursal)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.id_libro">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id_libro">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id_libro">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id_libro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id_usuario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha_prestamo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id_sucursal)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.id_libro">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.id_libro">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.id_libro">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
