@@ -26,6 +26,7 @@ namespace Sistema_BookHub_Online.Controllers
                               {
                                   IdLibros = l.id_Libros,
                                   Titulo = l.Titulo,
+                                  Autor = l.Autor,
                                   Ejemplares = l.ejemplares,
                                   Genero = l.Genero,
                               });
