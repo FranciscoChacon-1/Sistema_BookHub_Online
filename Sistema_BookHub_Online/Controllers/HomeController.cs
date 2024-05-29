@@ -61,7 +61,7 @@ namespace Sistema_BookHub_Online.Controllers
         public IActionResult Gotolibros()
         {
             return RedirectToAction("Index", "libros");
-        }
+        } 
         public IActionResult Gotopedidos()
         {
             return RedirectToAction("Index", "pedidos");
