@@ -60,14 +60,16 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid d-flex">
-                <form class="search-bar d-flex" role="search" method="get" action="SearchByTitle">
-                    <input class="form-control me-2" type="search" name="title" placeholder="Buscar por título" aria-label="Buscar">
+                <form class="search-bar d-flex" role="search" method="get" asp-action="SearchByTitle">
+                    <input class="form-control me-2" type="search" name="searchQuery" placeholder="Buscar por título" aria-label="Buscar">
                     <button class="btn btn-outline-success" type="submit">Buscar</button>
                 </form>
                 <a class="navbar-brand mx-auto" href="#">BookHub</a>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">@ViewBag.UserName</a>
+                        <form asp-controller="Home" asp-action="GotoSucursales">
+                            <button type="submit" class="btn btn-black">Sucursales</button>
+                        </form>
                     </li>
                 </ul>
             </div>

@@ -82,6 +82,31 @@ namespace Sistema_BookHub_Online.Controllers
             return RedirectToAction("Create", "prestamos");
         }
 
+        public IActionResult SearchByTitle(string searchQuery)
+        {
+            var userName = User.Identity.IsAuthenticated ? User.FindFirst(ClaimTypes.Name)?.Value : "Usuario";
+
+
+            var listaIndex = (from l in _context.libros
+                              select new
+                              {
+                                  IdLibros = l.id_Libros,
+                                  Titulo = l.Titulo,
+                                  Ejemplares = l.ejemplares,
+                                  Genero = l.Genero,
+                              });
+
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                listaIndex = listaIndex.Where(l => l.Titulo.Contains(searchQuery));
+            }
+
+            ViewData["listaIndex"] = listaIndex.ToList();
+            ViewBag.UserName = userName; // Pasa el nombre del usuario a la vista
+
+            return View("Index");
+        }
+
 
         public IActionResult Privacy()
         {
