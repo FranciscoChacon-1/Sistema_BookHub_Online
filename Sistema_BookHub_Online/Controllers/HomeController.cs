@@ -22,15 +22,12 @@ namespace Sistema_BookHub_Online.Controllers
 
 
             var listaIndex = (from l in _context.libros
-                              join pr in _context.prestamos on l.id_Libros equals pr.id_libro
-                              join su in _context.sucursales on pr.id_sucursal equals su.idsucursales
                               select new
                               {
                                   IdLibros = l.id_Libros,
                                   Titulo = l.Titulo,
                                   Ejemplares = l.ejemplares,
                                   Genero = l.Genero,
-                                  NombreSucursal = su.Nombre
                               });
 
             if (!string.IsNullOrEmpty(searchQuery))
