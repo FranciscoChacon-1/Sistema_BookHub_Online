@@ -18,9 +18,6 @@ namespace Sistema_BookHub_Online.Controllers
 
         public IActionResult Index(string searchQuery)
         {
-            var userName = User.Identity.IsAuthenticated ? User.FindFirst(ClaimTypes.Name)?.Value : "Usuario";
-
-
             var listaIndex = (from l in _context.libros
                               select new
                               {
@@ -37,7 +34,6 @@ namespace Sistema_BookHub_Online.Controllers
             }
 
             ViewData["listaIndex"] = listaIndex.ToList();
-            ViewBag.UserName = userName; // Pasa el nombre del usuario a la vista
 
             return View();
         }
@@ -84,9 +80,6 @@ namespace Sistema_BookHub_Online.Controllers
 
         public IActionResult SearchByTitle(string searchQuery)
         {
-            var userName = User.Identity.IsAuthenticated ? User.FindFirst(ClaimTypes.Name)?.Value : "Usuario";
-
-
             var listaIndex = (from l in _context.libros
                               select new
                               {
@@ -102,7 +95,6 @@ namespace Sistema_BookHub_Online.Controllers
             }
 
             ViewData["listaIndex"] = listaIndex.ToList();
-            ViewBag.UserName = userName; // Pasa el nombre del usuario a la vista
 
             return View("Index");
         }
