@@ -79,6 +79,11 @@ namespace Sistema_BookHub_Online.Controllers
             return RedirectToAction("Index", "usuarios");
         }
 
+        public IActionResult GotoPrestamosCrear()
+        {
+            return RedirectToAction("Create", "prestamos");
+        }
+
 
         public IActionResult Privacy()
         {

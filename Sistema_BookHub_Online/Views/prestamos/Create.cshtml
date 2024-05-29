@@ -13,20 +13,23 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="id_usuario" class="control-label"></label>
+                <label asp-for="id_libro" class="control-label"></label>
+                <input asp-for="id_libro" class="form-control" />
+                <span asp-validation-for="id_libro" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="id_usuario" class="control-label">Contraseña</label>
                 <input asp-for="id_usuario" class="form-control" />
                 <span asp-validation-for="id_usuario" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="Fecha_prestamo" class="control-label"></label>
+                <label asp-for="Fecha_prestamo" class="control-label">Fecha (Incluir la hora)</label>
                 <input asp-for="Fecha_prestamo" class="form-control" />
                 <span asp-validation-for="Fecha_prestamo" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Estado" class="control-label"></label>
-                <input asp-for="Estado" class="form-control" />
-                <span asp-validation-for="Estado" class="text-danger"></span>
-            </div>
+
             <div class="form-group">
                 <label asp-for="id_sucursal" class="control-label"></label>
                 <input asp-for="id_sucursal" class="form-control" />

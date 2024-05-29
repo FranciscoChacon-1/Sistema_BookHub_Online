@@ -13,9 +13,12 @@
                     <label>Genero: @libros.Genero</label>
                     <label>Ejemplares: @libros.Ejemplares</label>
                     <label>Sucursal: @libros.NombreSucursal</label>
-                    <div class="pt-3 mt-auto container">
-                        <a href="#" id="@libros.IdLibros" class="btn btn-dark">PRESTAR</a>
-                    </div>
+
+                    <form asp-action="GotoPrestamosCrear">
+                        <div style="margin-top: 20px; text-align: center;">
+                            <button type="submit" class="btn btn-dark">Prestar</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
